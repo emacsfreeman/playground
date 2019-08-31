@@ -19,10 +19,10 @@ NO_CHAINCODE="$6"
 : ${DELAY:="3"}
 : ${LANGUAGE:="golang"}
 : ${TIMEOUT:="10"}
-: ${VERBOSE:="false"}cacerts/tlsca.example.com-cert.pem -C mychannel -n mycc --peerAddresses 
-: ${NO_CHAINCODE:="false"}cacerts/tlsca.example.com-cert.pem -C mychannel -n mycc --peerAddresses 
-LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`cacerts/tlsca.example.com-cert.pem -C mychannel -n mycc --peerAddresses 
-COUNTER=1cacerts/tlsca.example.com-cert.pem -C mychannel -n mycc --peerAddresses 
+: ${VERBOSE:="false"} 
+: ${NO_CHAINCODE:="false"} 
+LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
+COUNTER=1 
 MAX_RETRY=10
 
 CC_SRC_PATH="github.com/chaincode/chaincode_example02/go/"
