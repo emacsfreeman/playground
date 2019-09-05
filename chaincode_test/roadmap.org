@@ -585,3 +585,35 @@
   est notre valeur de texte. L'appelant (à l'extérieur) le convertira en une chaîne à renvoyer à l'appelant HTTP.
 
   Si la lecture a échoué, par exemple parce que l'ID n'existe pas, un message d'erreur est renvoyé.
+* Comprendre les exigences de =packages= [1/2]
+
+  Lorsque le chaincode Hyperledger Fabric est prêt à être déployé, il doit être emballé dans une archive ZIP 
+  (sans exigences de nommage strictes). Cette archive zip doit inclure les fichiers suivants :
+
+    + manifeste =chaincode.yaml=
+    + code GO de chaincode (=.go=)
+    + Description OpenAPI (=.yaml=)
+
+
+  Le fichier =chaincode.yaml= doit porter exactement ce nom de fichier et doit être stocké dans le répertoire 
+  racine de l’archive ZIP.
+
+  En outre, il doit exister un dossier =/src= dans l’archive ZIP contenant les fichiers =.go= et =.yaml= qui 
+  représentent le code de chaîne. 
+
+  Vous n'êtes pas obligé de placer le code source du chaincode directement dans le dossier =/src=. 
+
+* Comprendre les exigences de =packages= [2/2]
+
+  Vous pouvez créer un chemin source plus profond (qui commence toujours par =/src=) dans l'archive ZIP, 
+  par exemple :
+
+  =/src/myChaincode/=.
+
+  Les fichiers =.go= et =.yaml= du chaincode doivent ensuite être stockés dans ce chemin source.
+
+  Si d'autres packages sont requis pour le chaincode, ils peuvent également être placés dans le 
+  dossier =/src= dans leurs propres sous-dossiers, en suivant l'approche du langage GO habituel 
+  pour la structuration du code source.
+  
+

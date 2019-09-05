@@ -1,4 +1,4 @@
-% Created 2019-09-05 jeu. 19:08
+% Created 2019-09-05 jeu. 19:17
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -35,7 +35,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile,label={sec:org1f00e1b}]{Structure générale du dossier}
+\begin{frame}[fragile,label={sec:orgee05c55}]{Structure générale du dossier}
  Dans tout dossier chaincode il doit y avoir :
 \begin{itemize}
 \item un fichier nommé \texttt{chaincode.yaml}
@@ -54,7 +54,7 @@ Voir la figure ci-dessous :
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgd542c1f}]{Le fichier \texttt{chaincode.yaml}}
+\begin{frame}[fragile,label={sec:org5ddcde9}]{Le fichier \texttt{chaincode.yaml}}
  Dans ce fichier nous fournirons les méta-données de notre chaincode.
 
 Les balises Id et Version sont importantes ici. 
@@ -78,7 +78,7 @@ un chaincode on ré-utilise sont numéro de version.
 Durant le déploiement, le numéro de version doit être disponible. 
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org077023d}]{Code du fichier \texttt{chaincode.yaml}}
+\begin{frame}[fragile,label={sec:org4c2ec44}]{Code du fichier \texttt{chaincode.yaml}}
  \begin{verbatim}
 # THIS SAMPLE CODE MAY BE USED SOLELY AS PART OF A TEST 
 # BLOCKCHAIN SERVICE (THE "SERVICE") AND IN ACCORDANCE 
@@ -92,7 +92,7 @@ Version:  1
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org8b035a3}]{Création du fichier de description API}
+\begin{frame}[fragile,label={sec:org39e3864}]{Création du fichier de description API}
  ALMERYS/BE|YS fournit une porte d'entrée qui expose toutes les fonctions chaincode comme des APIs REST normales.
 
 Vous pouvez accomplir cela en fournissant une description OpenAPI de l'API REST qui est liée aux fonctions du chaincode.
@@ -105,7 +105,7 @@ et comment les paramètres doivent être transmis au chaincode.
 Dans le dossier \texttt{src} créer un fichier \texttt{hello\_world.yaml} :
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgf44198f}]{Code du fichier \texttt{hello\_world.yaml}}
+\begin{frame}[fragile,label={sec:org2999f97}]{Code du fichier \texttt{hello\_world.yaml}}
  \begin{verbatim}
 swagger: "2.0"
 info:
@@ -127,7 +127,7 @@ info:
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[label={sec:orgd91ba35}]{Création du fichier du code source (en Golang)}
+\begin{frame}[label={sec:org1b3c659}]{Création du fichier du code source (en Golang)}
 Lors du développement d'un chaincode, l'étape suivante est d'écrire le programme 
 GO lui-même (ce qui est notre chaincode).
 
@@ -141,7 +141,7 @@ Dans les configurations Hyperledger Fabric standards, l'accès au chaincode se f
 uniquement via un SDK ce qui requiert un accès du chaincode au HTTPS/gRPC.
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org704d272}]{Code du fichier \texttt{hello\_world.go} :}
+\begin{frame}[fragile,label={sec:org202beb8}]{Code du fichier \texttt{hello\_world.go} :}
  \begin{verbatim}
 // DISCLAIMER:
 // THIS SAMPLE CODE MAY BE USED SOLELY AS PART OF THE TEST 
@@ -154,7 +154,7 @@ uniquement via un SDK ce qui requiert un accès du chaincode au HTTPS/gRPC.
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org138d15e}]{Comprendre le fichier de description API}
+\begin{frame}[fragile,label={sec:orgb76f664}]{Comprendre le fichier de description API}
  Le fichier de description API \texttt{hello\_world.yaml} est utilisé pour décrire l'interface
 HTTP exacte pour le chaincode.
 
@@ -168,7 +168,7 @@ de la méthode d'extraction des paramètres de la requête HTTP entrante. Ensuit
 ils associent ces éléments à une fonction du chaincode à appeler.
 \end{itemize}
 \end{frame}
-\begin{frame}[fragile,label={sec:orgd1cb59c}]{Comprendre la correspondance verbes HTTP et appels de chaincode}
+\begin{frame}[fragile,label={sec:org13058c6}]{Comprendre la correspondance verbes HTTP et appels de chaincode}
  Un ensemble riche de verbes HTTP est utilisé de manière spécifique pour que 
 les appels REST imitent les opérations CRUD (Create Read Update Delete) typiques
 des bases de données.
@@ -188,7 +188,7 @@ appel Invoque ou Query de Hyperledger Fabric.
 Dans cet exemple de chaincode, nous utiliserons des appels POST et GET.
 \end{frame}
 
-\begin{frame}[label={sec:orgfe154dc}]{Tableau des correspondances HTTP/Chaincode}
+\begin{frame}[label={sec:org400ca83}]{Tableau des correspondances HTTP/Chaincode}
 \begin{center}
 \begin{tabular}{llll}
 Verbe HTTP & Action type & Correspond à & Effet sur la Blockchain\\
@@ -201,7 +201,7 @@ GET & Lire & Query & Aucun\\
 \end{frame}
 
 
-\begin{frame}[fragile,label={sec:org1206353}]{Comprendre les chemins de chaincode}
+\begin{frame}[fragile,label={sec:org718930f}]{Comprendre les chemins de chaincode}
  La section des chemins de chaincode est utilisée pour définir une définition 
 enrichie de l'API basée sur REST et toutes les fonctionnalités de Swagger 
 peuvent être utilisées pour décrire l'API. Deux cas spéciaux s'appliquent : 
@@ -217,12 +217,12 @@ avec des type de chaîne de caractères en entrée de chaincode. Les types accep
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgce4dc0f}]{Définir le chemin du chaincode de \texttt{POST}}
+\begin{frame}[fragile,label={sec:org3a3de04}]{Définir le chemin du chaincode de \texttt{POST}}
  Pour définir le chemin d'accès au chaincode (utilisé pour appeler le chaincode), 
 ouvrir le fichier \texttt{hello\_world.yaml} avec un éditeur de texte et copiez-collez les lignes suivantes :
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orga72bf13}]{Code du fichier \texttt{hello\_world.yaml}}
+\begin{frame}[fragile,label={sec:orgc414a8b}]{Code du fichier \texttt{hello\_world.yaml}}
  \begin{verbatim}
 consumes:
   - application/x-www-form-urlencoded
@@ -251,7 +251,7 @@ paths:
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org929a156}]{Explications}
+\begin{frame}[fragile,label={sec:org221c824}]{Explications}
  Ce chemin de publication (\texttt{POST}) inclut la fonction write (\texttt{operationID: write}), deux paramètres pouvant être écrits 
 (\texttt{id} et \texttt{text}) et deux codes de réponse (200 pour la réussite de la publication et 500 pour l'échec).
 
@@ -261,14 +261,14 @@ Ceci définit les types de contenu par défaut qui seront acceptés pour tous le
 spécifiquement. Par défaut, il doit être défini sur \texttt{application/x-www-form-urlencoded} pour signaler que les demandes 
 HTTP entrantes auront des paramètres au format nom / valeur.
 \end{frame}
-\begin{frame}[fragile,label={sec:orgceea7c6}]{Définir le chemin \texttt{GET}}
+\begin{frame}[fragile,label={sec:org07bd5da}]{Définir le chemin \texttt{GET}}
  Pour définir le chemin de chaincode \texttt{GET} (utilisé pour interroger le chaincode), 
 copiez et collez les lignes suivantes sous le code précédent :
 \end{frame}
 
 
 
-\begin{frame}[fragile,label={sec:orgfe421e7}]{Code du fichier \texttt{hello\_world.yaml}}
+\begin{frame}[fragile,label={sec:orgb8e01f0}]{Code du fichier \texttt{hello\_world.yaml}}
  \begin{verbatim}
 get:
      operationId: read
@@ -287,12 +287,12 @@ get:
 	 description: Failed
 \end{verbatim}
 \end{frame}
-\begin{frame}[fragile,label={sec:orgb1468f1}]{Explications}
+\begin{frame}[fragile,label={sec:org265b656}]{Explications}
  Ce chemin pour \texttt{GET} comprend les fonctions de lecture (\texttt{operationID: read}), 
 un paramètre à lire (\texttt{id}) et deux codes de réponse (200 pour une lecture 
 réussie et 500 pour un échec de lecture).
 \end{frame}
-\begin{frame}[fragile,label={sec:org28534c5}]{Valider le \texttt{hello\_world.yaml} avec Swagger.io}
+\begin{frame}[fragile,label={sec:org07c3483}]{Valider le \texttt{hello\_world.yaml} avec Swagger.io}
  Ouvrir un navigateur web et naviguer jusqu'à l'éditeur \href{https://editor.swagger.io/}{Swagger.io}
 
 Cliquer sur File > Clear Editor
@@ -304,12 +304,12 @@ Cliquer sur File > Clear Editor
 Puis copier le code du fichier \texttt{hello\_world.yaml} à l'intérieur
 \end{frame}
 
-\begin{frame}[label={sec:org41d2ead}]{Swagger complet}
+\begin{frame}[label={sec:orgc388d89}]{Swagger complet}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./swagger_complete.png}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgdd4c4cd}]{Comprendre les avantages des outils de développement de chaincode}
+\begin{frame}[label={sec:org76c9c46}]{Comprendre les avantages des outils de développement de chaincode}
 Un chaincode est un programme développé en utilisant le langage de 
 programmation GO. Pour le cycle de développement, il est plus efficace
 de pouvoir vérifier la syntaxe des programmes GO avant de les télécharger
@@ -317,7 +317,7 @@ et de les déployer sur le noeud Hyperledger Fabric. Vous pouvez facilement
 le faire avec une installation minimale.
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org1ad94dd}]{Installer Git et Golang}
+\begin{frame}[fragile,label={sec:org2f34247}]{Installer Git et Golang}
  \begin{block}{Télécharger}
 \begin{itemize}
 \item Télécharger Git : \url{https://git-scm.com/downloads}
@@ -334,7 +334,7 @@ Pour valider les installations, ouvrir un terminal et taper :
 Dans les deux cas des documentations s'afficheront à l'écran
 \end{block}
 \end{frame}
-\begin{frame}[fragile,label={sec:org89b0332}]{Installer les paquets Hyperledger}
+\begin{frame}[fragile,label={sec:org1a08414}]{Installer les paquets Hyperledger}
  Utilisons \texttt{go} et \texttt{git} :
 
 \begin{verbatim}
@@ -346,7 +346,7 @@ go get github.com/hyperledger/fabric/protos/peer
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org1c16f99}]{Création du \texttt{package main}}
+\begin{frame}[fragile,label={sec:org3c91350}]{Création du \texttt{package main}}
  Le chaincode de Hyperledger Fabric est essentiellement un morceau de code exécuté sur un nœud homologue. 
 
 Lors de la création de ce code, vous utiliserez le package «main» pour en faire un programme exécutable. 
@@ -365,7 +365,7 @@ Ouvrez votre fichier \texttt{hello\_world.go}, copiez et collez le texte ci-dess
 package main
 \end{verbatim}
 \end{frame}
-\begin{frame}[fragile,label={sec:orgdb1e7e0}]{Importer des \texttt{packages}}
+\begin{frame}[fragile,label={sec:org829c0a2}]{Importer des \texttt{packages}}
  Dans Go, les fichiers source sont organisés dans des répertoires système appelés packages. 
 
 Ceux-ci permettent la réutilisation de code dans les applications Go. 
@@ -378,7 +378,7 @@ La commande \texttt{go get} va extraire les packages du référentiel source et 
 
 Ouvrez votre fichier \texttt{hello\_world.go}, copiez et collez ce qui suit sous le paquet principal :
 \end{frame}
-\begin{frame}[fragile,label={sec:org9ab8b84}]{Code du fichier \texttt{hello\_world.go}}
+\begin{frame}[fragile,label={sec:orgf985e17}]{Code du fichier \texttt{hello\_world.go}}
  \begin{verbatim}
 package main {
   import (
@@ -388,7 +388,7 @@ package main {
 }
 \end{verbatim}
 \end{frame}
-\begin{frame}[fragile,label={sec:org59c5657}]{Définir un chaincode}
+\begin{frame}[fragile,label={sec:org2a0e702}]{Définir un chaincode}
  Lorsque le code de chaîne est démarré sur un nœud homologue, la fonction principale est exécutée. 
 
 Le chaincode est ensuite démarré avec \texttt{shim.Start}, qui attend une structure qui implémente l'interface \texttt{shim.Chaincode}.
@@ -404,7 +404,7 @@ func main() {
 }
 \end{verbatim}
 \end{frame}
-\begin{frame}[fragile,label={sec:org9de767d}]{Implémentation d'une interface chaincode}
+\begin{frame}[fragile,label={sec:orge4c4224}]{Implémentation d'une interface chaincode}
  Tout chaincode a besoin de l'interface suivante : 
 
 \begin{verbatim}
@@ -423,7 +423,7 @@ type Chaincode interface {
 }
 \end{verbatim}
 \end{frame}
-\begin{frame}[fragile,label={sec:org6e36154}]{Explications}
+\begin{frame}[fragile,label={sec:org99aa9ad}]{Explications}
  Lorsque vous instanciez ou mettez à niveau un code de chaîne, la fonction Init de ce dernier est exécutée. 
 
 Vous pouvez l'utiliser pour initialiser des valeurs sur le grand livre.
@@ -439,7 +439,7 @@ d’accéder aux paramètres de transaction et de modifier le grand livre.
 
 Ouvrez votre fichier \texttt{hello\_world.go}, copiez et collez les fonctions init et invoke sous les packages d'importation :
 \end{frame}
-\begin{frame}[fragile,label={sec:org69bdb5c}]{Code à ajouter au fichier \texttt{hello\_world.go}}
+\begin{frame}[fragile,label={sec:orgb34e5a7}]{Code à ajouter au fichier \texttt{hello\_world.go}}
  \begin{verbatim}
 // Init is called during Instantiate transaction.
 func (ptr *Chaincode) Init(stub shim.ChaincodeStubInterface) peer.Response {
@@ -452,7 +452,7 @@ func (ptr *Chaincode) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
 }
 \end{verbatim}
 \end{frame}
-\begin{frame}[label={sec:orgf4fa4c5}]{Ajouter des fonctions au chaincode}
+\begin{frame}[label={sec:orgcc701c5}]{Ajouter des fonctions au chaincode}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./rest_api_calls.png}
 \end{center}
@@ -468,7 +468,7 @@ Cependant, un appel à la fonctionnalité Query est en réalité une opération 
 qui ne renvoie que des informations.
 \end{frame}
 
-\begin{frame}[fragile,label={sec:org9c10388}]{Exlications [1/2]}
+\begin{frame}[fragile,label={sec:org624ce69}]{Exlications [1/2]}
  Étant donné les concepts Invoke et Query dans Fabric (au niveau du SDK), 
 le monde HTTP REST peut être mis en correspondance sur ces deux appels. 
 En réalité, toutes les requêtes HTTP \texttt{GET} sont considérées comme des 
@@ -480,7 +480,7 @@ Toutefois, les concept Invoke et Query sur le SDK de Fabric ne correspondent pas
 dans le chaincode de Fabric. 
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgd311851}]{Explications [2/2]}
+\begin{frame}[fragile,label={sec:org020d50c}]{Explications [2/2]}
  Dans le chaincode, il n'y a qu'une seule fonction Invoke (implémentée dans le chaincode à l'aide du langage GO). 
 Ainsi, dans le chaincode, il n'y a que des fonctionnalités de chaincode (également appelées fonctions), qui sont 
 toutes accessibles via le point d'entrée central de la fonction Invoke (langage GO). 
@@ -494,7 +494,7 @@ Pour accéder au nom de la fonction et aux arguments de l'appel, vous pouvez uti
 Vous pouvez ensuite utiliser le nom de la fonction pour appeler différentes fonctions.
 \end{frame}
 
-\begin{frame}[fragile,label={sec:orgc4bce14}]{Code de la fonction \texttt{Invoke}}
+\begin{frame}[fragile,label={sec:org4e5d38c}]{Code de la fonction \texttt{Invoke}}
  \begin{verbatim}
 func (ptr *Chaincode) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
       function, args := stub.GetFunctionAndParameters()
@@ -509,7 +509,7 @@ func (ptr *Chaincode) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
 }
 \end{verbatim}
 \end{frame}
-\begin{frame}[label={sec:org692d33c}]{Explications [1/2]}
+\begin{frame}[label={sec:org9ee9680}]{Explications [1/2]}
 Dans notre exemple de code de chaîne, nous souhaitons mettre à jour notre fonction Invoke 
 afin de différencier les actions, telles qu'écrire et lire. Nous faisons cela en créant 
 deux nouvelles fonctions, intitulées écrire et lire. La fonction d'écriture vous permet 
@@ -526,7 +526,7 @@ dans le code de chaîne pour accéder aux fonctionnalités de Fabric. Elle est d
 détail dans la documentation de Fabric.
 \end{frame}
 
-\begin{frame}[label={sec:org047f2da}]{Explications [2/2]}
+\begin{frame}[label={sec:org3b6843d}]{Explications [2/2]}
 Tous les paramètres de toute fonctionnalité de code de chaîne sont organisés en chaînes 
 dans un tableau du code de chaîne. Il n'y a pas de contrôle sur le nombre de paramètres 
 fournis, ni sur le type de chaque paramètre. Il appartient à la fonctionnalité de code 
@@ -540,7 +540,7 @@ indépendamment des chaînes d'identifiant fournies. (Notez que cela n’a pas �
 simplement un exemple de la façon dont les paramètres peuvent être transformés avec le chaincode 
 avant d’être écrits dans le blockchain.)
 \end{frame}
-\begin{frame}[fragile,label={sec:orgf3456c8}]{Code de la fonction \texttt{write}}
+\begin{frame}[fragile,label={sec:orga252e1c}]{Code de la fonction \texttt{write}}
  \begin{verbatim}
 // Write text by ID
 func write(stub shim.ChaincodeStubInterface, args []string) peer.Response {
@@ -559,7 +559,7 @@ func write(stub shim.ChaincodeStubInterface, args []string) peer.Response {
 }
 \end{verbatim}
 \end{frame}
-\begin{frame}[label={sec:org7b88762}]{Explications [1/3]}
+\begin{frame}[label={sec:org6875754}]{Explications [1/3]}
 La fonction write prend deux paramètres, à savoir l'ID de la chaîne et la valeur de chaîne elle-même. 
 Un appel peut par exemple être écrit ("TXT001", "Hello World!"). 
 La première étape de la fonction write consiste à vérifier que deux paramètres (de type chaîne) sont 
@@ -573,7 +573,7 @@ entiers, etc., le cas échéant. Dans cet exemple, la seule manipulation de para
 à traduire l'ID en minuscule, afin de s'assurer qu'il est insensible à la casse.
 \end{frame}
 
-\begin{frame}[label={sec:orgaafafd1}]{Explications [2/3]}
+\begin{frame}[label={sec:orgc32be07}]{Explications [2/3]}
 Dans l'étape suivante, la chaîne de texte doit être écrite dans la chaîne de blocs. 
 La façon dont cela fonctionne, est que toutes les informations écrites dans la chaîne de blocs sont 
 regroupées dans un blob et stockées sous une clé à l'aide de la méthode PutState sur l'interface de stub. 
@@ -586,7 +586,7 @@ d'entrée.
 Nous effectuons donc un transtypage en langage GO uniquement pour convertir la chaîne en tableau d'octets.
 \end{frame}
 
-\begin{frame}[label={sec:org1aa20b8}]{Explications [3/3]}
+\begin{frame}[label={sec:org2104449}]{Explications [3/3]}
 Dans une dernière étape, nous retournons simplement un message de réussite.
 
 Comment savons-nous / déterminons-nous que l'ID est le premier paramètre (args [0]) et que la valeur textuelle 
@@ -598,7 +598,7 @@ vers cette fonction.
 Là, deux paramètres ont été définis en tant qu'entrée dans l'appel HTTP REST / write et les paramètres sont 
 transmis au code de chaîne dans exactement la séquence dans laquelle ils ont été définis dans le fichier YAML.
 \end{frame}
-\begin{frame}[fragile,label={sec:orgf0d4eae}]{Code de la fonction \texttt{read}}
+\begin{frame}[fragile,label={sec:orgf0080d2}]{Code de la fonction \texttt{read}}
  \begin{verbatim}
 // Read text by ID
 func read(stub shim.ChaincodeStubInterface, args []string) peer.Response {
@@ -617,7 +617,7 @@ func read(stub shim.ChaincodeStubInterface, args []string) peer.Response {
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[label={sec:orge2d08dc}]{Explications [1/2]}
+\begin{frame}[label={sec:org9ef61ca}]{Explications [1/2]}
 La fonction de lecture est un peu plus simple. 
 
 Il ne prend qu'un seul paramètre en entrée (l'ID de la chaîne à lire) et renvoie la valeur textuelle de la chaîne. 
@@ -630,7 +630,7 @@ Notez que nous avons simplement ignoré la vérification de longueur ici, car no
 un peu plus tard lors de la lecture de la blockchain.
 \end{frame}
 
-\begin{frame}[label={sec:org5b91371}]{Explications [2/2]}
+\begin{frame}[label={sec:org6f9e76c}]{Explications [2/2]}
 Dans l'étape suivante, nous extrayons à nouveau l'ID en tant que variable GO du tableau de chaînes (args []).
 
 La lecture de la blockchain est effectuée avec la méthode GetState. 
@@ -642,5 +642,37 @@ tant que paramètre de retour, ce qui signifie que nous pouvons renvoyer directe
 est notre valeur de texte. L'appelant (à l'extérieur) le convertira en une chaîne à renvoyer à l'appelant HTTP.
 
 Si la lecture a échoué, par exemple parce que l'ID n'existe pas, un message d'erreur est renvoyé.
+\end{frame}
+\begin{frame}[fragile,label={sec:org9e2b86d}]{Comprendre les exigences de \texttt{packages} [1/2]}
+ Lorsque le chaincode Hyperledger Fabric est prêt à être déployé, il doit être emballé dans une archive ZIP 
+(sans exigences de nommage strictes). Cette archive zip doit inclure les fichiers suivants :
+
+\begin{itemize}
+\item manifeste \texttt{chaincode.yaml}
+\item code GO de chaincode (\texttt{.go})
+\item Description OpenAPI (\texttt{.yaml})
+\end{itemize}
+
+
+Le fichier \texttt{chaincode.yaml} doit porter exactement ce nom de fichier et doit être stocké dans le répertoire 
+racine de l’archive ZIP.
+
+En outre, il doit exister un dossier \texttt{/src} dans l’archive ZIP contenant les fichiers \texttt{.go} et \texttt{.yaml} qui 
+représentent le code de chaîne. 
+
+Vous n'êtes pas obligé de placer le code source du chaincode directement dans le dossier \texttt{/src}. 
+\end{frame}
+
+\begin{frame}[fragile,label={sec:org90d1a2d}]{Comprendre les exigences de \texttt{packages} [2/2]}
+ Vous pouvez créer un chemin source plus profond (qui commence toujours par \texttt{/src}) dans l'archive ZIP, 
+par exemple :
+
+\texttt{/src/myChaincode/}.
+
+Les fichiers \texttt{.go} et \texttt{.yaml} du chaincode doivent ensuite être stockés dans ce chemin source.
+
+Si d'autres packages sont requis pour le chaincode, ils peuvent également être placés dans le 
+dossier \texttt{/src} dans leurs propres sous-dossiers, en suivant l'approche du langage GO habituel 
+pour la structuration du code source.
 \end{frame}
 \end{document}
