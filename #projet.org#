@@ -1,0 +1,54 @@
+#+TITLE: Projet ProRegister Coffre Fort Numérique Général
+#+AUTHOR: Laurent Garnier
+
+* Intro
+  
+  + Blockchain (générale)
+  + Traçabilité (Data Life Cycle)
+
+* Cas d'usage : CFNG (IDYS)
+
+  Les journaux Logs seront enregistrés dans ProRegister.
+
+  En fait les hashs des logs.
+
+  1. Swiss (1 Org)-(1 CA)-(2 PEERS)
+  2. Luxembourg (1 Org)-(1 CA)-(2 PEERS)
+  3. France (1 Org)-(1 CA)-(2 PEERS)
+  4. Singapour (1 Org)-(1 CA)-(2 PEERS)
+
+* Implémentation
+
+  1. Un smart contract ([[https://openblockchain.readthedocs.io/en/latest/protocol-spec/#2.1.3-Chaincode-Services][chaincode]]) pour enregister le hash ([[https://godoc.org/github.com/hyperledger/fabric/bccsp][BCCSP]])
+  2. Système pour le mapping entre les logs et les hashs
+  3. Contrôle d'accès (chaincode policy-MSP-[[https://hyperledger-fabric.readthedocs.io/en/release-1.4/identity/identity.html][Identity]])
+  4. Une [[https://developers.sap.com/tutorials/blockchain-hlf-rest-api.html][API-REST]] ([[https://openblockchain.readthedocs.io/en/latest/protocol-spec/#62-rest-api][readthedoc]]) par ORG et interconnectées 
+     + [[https://youtu.be/JfiMUybkz8I][YouTube]], 
+     + [[https://github.com/MaxXx1313/fabric-rest][GitHub]], 
+     + [[https://github.com/Altoros/fabric-rest][Altoros]], 
+     + [[https://www.edureka.co/community/30806/hyperledger-how-to-set-up-rest-api-for-invoking-chaincode][Edureka]], 
+     + [[https://developer.ibm.com/patterns/explore-hyperledger-fabric-through-a-complete-set-of-apis/][IBM]], 
+     + [[https://aws.amazon.com/fr/blogs/database/build-and-deploy-an-application-for-hyperledger-fabric-on-amazon-managed-blockchain/][AWS]],
+     + [[https://jira.hyperledger.org/browse/FABR-4][JIRA]],
+     + [[https://myhsts.org/tutorial-learn-how-to-configure-hyperledger-sawtooth-validator-and-rest-api-on-aws.php][Sawtooth]]
+
+* Tutos Hyperledger
+
+  + [[https://medium.com/@kctheservant/an-implementation-example-of-notarization-in-hyperledger-fabric-e66fab155fdb][An Implementation Example of Notarization in Hyperledger Fabric]]
+  + [[https://medium.com/coinmonks/hyperledger-fabric-smart-contract-data-model-protobuf-to-chaincode-state-mapping-191cdcfa0b78][Hyperledger Fabric smart contract data model: protobuf to chaincode state mapping]]
+  + [[https://medium.com/@kctheservant/setup-a-hyperledger-fabric-host-and-create-a-machine-image-682859fd58ba][Setup a Hyperledger Fabric Host and Create a Machine Image]]
+  + [[https://www.serial-coder.com/post/demystifying-hyperledger-fabric-fabric-architecture/][Demystifying Hyperledger Fabric]]
+  + [[https://medium.com/coinmonks/hyperledger-explorer-quick-start-50a49c6d7957][Hyperledger Explorer quick start]]
+  + [[https://medium.com/@jushuspace/hyperledger-fabric-event-listener-tutorial-2484614a9e4][Hyperledger Fabric Event Listener]]
+  + [[https://blockgeeks.com/guides/hyperledger-fabric-tutorial-part-1/][Hyperledger Fabric Tutorial Comprehensive Guide Part 1]]
+  + [[https://youtu.be/2moCQeHCx-g][Hyperledger Fabric 1.4 Tutorial - FabCar]]
+  + [[https://developer.ibm.com/tutorials/ibm-blockchain-platform-vscode-smart-contract/][Develop a smart contract with the IBM Blockchain Platform VS Code Extension]]
+  + [[https://developer.ibm.com/tutorials/quick-start-guide-for-ibm-blockchain-platform/][Learn step-by-step how to set up a basic blockchain network]]
+  + [[https://hackernoon.com/how-to-create-a-backend-in-nodejs-for-hyperledger-fabric-9c88d758eb2d][How to create a backend in NodeJS for Hyperledger Fabric]]
+  + [[https://hub.packtpub.com/installing-a-blockchain-network-using-hyperledger-fabric-and-composertutorial/][Installing a blockchain network using Hyperledger Fabric and Composer]]
+  + [[https://www.hyperledger.org/projects/fabric]]
+  + [[https://github.com/CATechnologies/blockchain-tutorials/wiki/Tutorial:-Hyperledger-Fabric-v1.1-%25E2%2580%2593-Create-a-Development-Business-Network-on-zLinux][Tutorial: Hyperledger Fabric v1.1 - Create a Development Business Network on zLinux]]
+  + [[https://chainhero.io/fr/2018/03/tutorial-hyperledger-fabric-sdk-go-how-to-build-your-first-app-v1-0-5/][Tutorial Hyperledger Fabric SDK Go: How to build your first app]]
+  + [[https://digitaldefynd.com/best-hyperledger-courses/][5 Best Hyperledger Courses]]
+  + [[https://www.edureka.co/blog/hyperledger-fabric/][Hyperledger Fabric - A Platform For Business Solutions]]
+  
