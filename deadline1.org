@@ -1,0 +1,9 @@
+#+TITLE: Deadline 1 pour le lundi 9 septembre 2019
+#+AUTHOR: Laurent Garnier
+
+* Tâches à accomplir
+
+  1. Trouver ce qui pose problème dans l'exécution du chaincode
+  2. Mettre en place une fonction pour contrôler les permissions d'utilisateurs 
+     sur la blockchain (droit d'écriture) et pour ce faire trouver la bibliothèque
+     de code appropriée
