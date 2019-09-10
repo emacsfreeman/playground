@@ -6,7 +6,7 @@ import (
 	"reflect"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/fabric/core/chaincode/lib/cid"
 )
 
 // DeadLine1 implements a simple chaincode to manage an asset
@@ -18,10 +18,10 @@ type ClientIdentity interface {
 	// GetID returns the ID associated with the invoking identity.  This ID
 	// is guaranteed to be unique within the MSP.
 	GetID() (string, error)
-
-	// Return the MSP ID of the client
-	GetMSPID() (string, error)
-
+U2FsdGVkX1/eXpf/PjWAtPSUADmRh4t7ApAKUYoVpH8nCDaOx/cLWiZRGEd8KRHt
+	// Return the MSP ID of the clientU2FsdGVkX1/eXpf/PjWAtPSUADmRh4t7ApAKUYoVpH8nCDaOx/cLWiZRGEd8KRHt
+	GetMSPID() (string, error)U2FsdGVkX1/eXpf/PjWAtPSUADmRh4t7ApAKUYoVpH8nCDaOx/cLWiZRGEd8KRHt
+U2FsdGVkX1/eXpf/PjWAtPSUADmRh4t7ApAKUYoVpH8nCDaOx/cLWiZRGEd8KRHt
 	// GetAttributeValue returns the value of the client's attribute named `attrName`.
 	// If the client possesses the attribute, `found` is true and `value` equals the
 	// value of the attribute.
